@@ -125,18 +125,18 @@ function AnimateOnPage(_p){
 		$('.select_chanel').hide();
 		$('.change_chanel').hide();
 	} else  if(_p<4){
-		$('.select_region').html('Choose Your Region');
+		$('.select_region').html('Choose Your Market');
 		$('.select_region').show();
 		$('.select_chanel').hide();
 		$('.change_chanel').hide();
 	}else  if(_p<6){
-		$('.select_region').html('Choose Your Region &gt');
+		$('.select_region').html('Choose Your Market &gt');
 		$('.select_chanel').html('US Channel Lineups');
 		$('.select_region').show();
 		$('.select_chanel').show();
 		$('.change_chanel').hide();
 	}else  if(_p>=6){
-		$('.select_region').html('Choose Your Region &gt');
+		$('.select_region').html('Choose Your Market &gt');
 		$('.select_chanel').html('US Channel Lineups &gt');
 		$('.chanel_title').html(_chanels[parseInt(_p/2, 10)].name);
 		$('.chanels_list ul li').removeClass('selected');
@@ -349,6 +349,10 @@ function resizeElements(_width, _height){
 	$('.chanel_popup_close').css({"width":(_ktf*25)+"px","height":(_ktf*25)+"px" });
 	$('.chanel_popup_title').css({"font-size":(_ktf*24)+"px","line-height":(_ktf*37)+"px"});
 	$('.chanel_popup_links').css({"font-size":(_ktf*13)+"px", "line-height":(_ktf*37)+"px", "padding":"0 "+(_ktf*20)+"px", "margin-left":(_ktf*20)+"px"});
+	$('.page_end_button a').css({"font-size":(_ktf*24)+"px","padding":(_ktf*10)+"px "+(_ktf*20)+"px"});
+	$('.page_end_button p').css({"font-size":(_ktf*24)+"px"});
+	$('.video_small_title').css({"font-size":(_ktf*24)+"px"});
+	
 	
 	cw=_width/2;
 	ch=_height;
