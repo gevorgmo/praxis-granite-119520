@@ -92,7 +92,12 @@ function AnimateOnPage(_p){
 				$('.magazine .p' + dest1+' .page-bg').addClass('pageanimated');
 				$('.magazine .p' + dest2+' .page-bg').addClass('pageanimated');
 				setTimeout(function(){ $('.magazine .p' + dest1+' .page-bg .page_person_element_l').css('opacity', '1');  $('.magazine .p' + dest2+' .page-bg .page_person_element_r').css('opacity', '1');}, 500);	
-				setTimeout(function(){ $('.magazine .p' + dest1+' .page-bg .page_title_element').css('opacity', '1'); $('.magazine .p' + dest2+' .page-bg .page_title_element').css('opacity', '1'); },1000);
+				setTimeout(function(){ 
+					$('.magazine .p' + dest1+' .page-bg .page_title_element').css('opacity', '1'); 
+					$('.magazine .p' + dest2+' .page-bg .page_title_element').css('opacity', '1'); 
+					$('.magazine .p' + dest1+' .page-bg .page_title_element_2').css('opacity', '1'); 
+					$('.magazine .p' + dest2+' .page-bg .page_title_element_2').css('opacity', '1'); 
+				},1000);
 				if(_lineupFirstTime){
 					_lineupFirstTime=false;
 					setTimeout(function(){ 
@@ -352,8 +357,11 @@ function resizeElements(_width, _height){
 	$('.page_end_button a').css({"font-size":(_ktf*24)+"px","padding":(_ktf*10)+"px "+(_ktf*20)+"px"});
 	$('.page_end_button p').css({"font-size":(_ktf*24)+"px"});
 	$('.video_small_title').css({"font-size":(_ktf*24)+"px"});
-	
-	
+	$('.page1_element2_title').css({"font-size":(_ktf*20)+"px", 'padding-left':(_ktf*39)+"px"});
+	$('.page2_element2').css({"font-size":(_ktf*60)+"px"});
+	$('.page_right_list_title1,.page_right_list_title2').css({"font-size":(_ktf*22)+"px"});
+	$('.page_title_element_big').css({"font-size":(_ktf*60)+"px"});
+	$('.page_title_element_small').css({"font-size":(_ktf*30)+"px"});
 	cw=_width/2;
 	ch=_height;
 	$('.video-canvas').css({"width": cw+"px","height": ch+"px"});
