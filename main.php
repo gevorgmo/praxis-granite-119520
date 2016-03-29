@@ -126,6 +126,7 @@ if (isset($user)) {
 								<a ignore="1" class="chanel_popup_links chanel_popup_links_pdf" target="_blank" href="#">PDF</a>
 								<a ignore="1" class="chanel_popup_links chanel_popup_links_slide"  target="_blank" href="#">SLIDES</a>
 								<a ignore="1" class="chanel_popup_links chanel_popup_links_fullscreen"  href="#">FULLSCREEN</a>
+								<div style="clear:both"></div>
 							</div>
 						</div>
 					</div>
