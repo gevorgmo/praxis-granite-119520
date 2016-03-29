@@ -113,21 +113,19 @@ if (isset($user)) {
 		</div>
 	</div>
 	<div id="canvas">
-		<!--<div class="zoom-icon-out"></div>-->
 		<div class="lineup_sheet"></div>	
 			<div class="magazine-viewport">
 				<div class="magazine" id="magazine">
 					<div ignore="1" class="chanel_popup">
 						<div ignore="1" class="chanel_popup_close"></div>
 						<div ignore="1" class="chanel_popup_bg"></div>
-						<div ignore="1" class="chanel_popup_cont">
-							<div ignore="1" id="chanel_popup_iframe" class="chanel_popup_iframe"></div>
-							<!--<div ignore="1" class="chanel_popup_overlay"></div>-->
+						<div ignore="1" class="chanel_popup_cont" id="chanel_popup_iframe">
+							<div ignore="1"  class="chanel_popup_iframe"></div>
 							<div ignore="1" class="chanel_popup_buttons">
 								<span ignore="1" class="chanel_popup_title">DOWNLOAD</span>
 								<a ignore="1" class="chanel_popup_links chanel_popup_links_pdf" target="_blank" href="#">PDF</a>
 								<a ignore="1" class="chanel_popup_links chanel_popup_links_slide"  target="_blank" href="#">SLIDES</a>
-								<a ignore="1" class="chanel_popup_links chanel_popup_links_fullscreen"  target="_blank" href="#">FULLSCREEN</a>
+								<a ignore="1" class="chanel_popup_links chanel_popup_links_fullscreen"  href="#">FULLSCREEN</a>
 							</div>
 						</div>
 					</div>
@@ -141,19 +139,13 @@ if (isset($user)) {
 		</div>
 	</div>
 	<script type="text/javascript">
-
-
 	function loadApp() {
-		
 		$('#canvas').fadeIn(1000);
-		
 		var lookbook = $('.magazine');
-		// Check if the CSS was already loaded
 		if (lookbook.width()==0 || lookbook.height()==0) {
 			setTimeout(loadApp, 10);
 			return;
 		}
-
 		lookbook.turn({
 				width: 1400,
 				height: 932,
@@ -196,19 +188,12 @@ if (isset($user)) {
 					},
 					missing: function (event, pages) {
 						var book = $(this);
-						// Add pages that aren't in the magazine
 						for (var i = 0; i < pages.length; i++)
 							addPage(pages[i], $(this));
 					}
 				}
 		});
-		/*
-		setTimeout(function(){
-			if ($('.magazine').turn('is')){
-				if ($('.magazine').turn('page')==1) $('.magazine').turn('peel', 'tr');
-			}		
-		}, 3000);
-	*/
+
 		$(document).keydown(function(e){
 			var previous = 37, next = 39, esc = 27;
 			switch (e.keyCode) {
@@ -241,15 +226,12 @@ if (isset($user)) {
 		
 		// Load the HTML4 version if there's not CSS transform
 		$('.magazine').bind('mousewheel DOMMouseScroll', function(event){	
-			if(!$('.magazine').hasClass('zoom-in')){
-				if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-					// scroll up
-					$('.magazine').turn('previous');
-				}
-				else {
-					// scroll down
-					$('.magazine').turn('next');
-				}
+			if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+				// scroll up
+				$('.magazine').turn('previous');
+			}else {
+				// scroll down
+				$('.magazine').turn('next');
 			}
 		});
 		
