@@ -272,7 +272,7 @@ function zoomIn() {
 	};
 
 	$('.magazine').data().zoomIn = true;
-	$('.magazine').turn('disable', true);
+	if(!$('.chanel_popup').hasClass('popopopened')) $('.magazine').turn('disable', true);
 	$(window).resize(zoomOut);
 
 		var realWidth = $(this)[0].width,
@@ -306,7 +306,7 @@ function zoomOut() {
 	var transitionEnd = $.cssTransitionEnd(),
 	completeTransition = function(e) {
 		$('.magazine-viewport').unbind(transitionEnd);
-		$('.magazine').turn('disable', false);
+		if(!$('.chanel_popup').hasClass('popopopened')) $('.magazine').turn('disable', false);
 		doBackgroundAnimationCSS($('.magazine').turn('page'));
 	};
 	$('.magazine-viewport').draggable("destroy").css({'top':'50%','left':'50%'});
@@ -410,6 +410,7 @@ $("body").on("click", ".page-item", function(event) {
 	var _index=parseInt($(this).attr('id').substr(12))+3;
 	$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_index].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
 	$('.chanel_popup_iframe_cont').css({"height":($('.chanel_popup_cont').height()+30)+"px"});
+	$('.chanel_popup').addClass('popopopened');
 	$('.chanel_popup').css({'display':'block'});
 	$('.chanel_popup_bg').css({'opacity':'0.8'});
 	$('.chanel_popup_cont').css({'top':'50%'});
@@ -423,6 +424,7 @@ $("body").on("click", ".chanel_popup_close", function(event) {
 	$('.chanel_popup_cont').css({'top':'-80%'});
 	setTimeout(function(){
 		$('.chanel_popup').css({'display':'none'}); 
+		$('.chanel_popup').removeClass('popopopened');
 		$('.chanel_popup_iframe').html(''); 
 		$('.magazine').turn('disable', false); 
 	},500)
