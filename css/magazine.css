@@ -145,3 +145,4 @@ header a{text-decoration:none}
 .page_end_button a{text-decoration: none;font-size:24px;font-family:'Roboto', sans-serif;color:#ff0000;padding:10px 20px;text-align:center;background-color:#fff;border-radius:5px;}
 .page_end_button a:hover{background-color:#ccc;}
 .video_small_title{font-weight: 300;position:absolute;left:5%;z-index:999;font-size:24px;font-family:'Roboto', sans-serif;color:#fff;}
+.chanel_popup_links_fullscreen{}

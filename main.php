@@ -113,7 +113,7 @@ if (isset($user)) {
 		</div>
 	</div>
 	<div id="canvas">
-		<div class="zoom-icon-out"></div>
+		<!--<div class="zoom-icon-out"></div>-->
 		<div class="lineup_sheet"></div>	
 			<div class="magazine-viewport">
 				<div class="magazine" id="magazine">
@@ -121,12 +121,13 @@ if (isset($user)) {
 						<div ignore="1" class="chanel_popup_close"></div>
 						<div ignore="1" class="chanel_popup_bg"></div>
 						<div ignore="1" class="chanel_popup_cont">
-							<div ignore="1" class="chanel_popup_iframe"></div>
-							<div ignore="1" class="chanel_popup_overlay"></div>
+							<div ignore="1" id="chanel_popup_iframe" class="chanel_popup_iframe"></div>
+							<!--<div ignore="1" class="chanel_popup_overlay"></div>-->
 							<div ignore="1" class="chanel_popup_buttons">
 								<span ignore="1" class="chanel_popup_title">DOWNLOAD</span>
 								<a ignore="1" class="chanel_popup_links chanel_popup_links_pdf" target="_blank" href="#">PDF</a>
 								<a ignore="1" class="chanel_popup_links chanel_popup_links_slide"  target="_blank" href="#">SLIDES</a>
+								<a ignore="1" class="chanel_popup_links chanel_popup_links_fullscreen"  target="_blank" href="#">FULLSCREEN</a>
 							</div>
 						</div>
 					</div>
@@ -220,7 +221,8 @@ if (isset($user)) {
 					e.preventDefault();
 				break;
 				case esc:	
-					zoomOut();
+					if (_isfullxcreen)  toggleFull();
+					e.preventDefault();
 				break;
 			}
 		});

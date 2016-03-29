@@ -63,6 +63,7 @@ var _chanels=[
 	{name:'trending2',  presentation:''},
 	{name:'trending3',  presentation:''}
 ];
+var _isfullxcreen=false;
 
 function AnimateOnPage(_p){
 	
@@ -323,6 +324,11 @@ function zoomOut() {
 
 
 function resizeElements(_width, _height){
+	if((document.fullScreenElement && document.fullScreenElement !== null) ||  (document.mozFullScreen || document.webkitIsFullScreen)){
+		_isfullxcreen=true;
+	} else {
+		_isfullxcreen=false;
+	}
 	var _ktf,_ktf1,_ktf2;
 	if(_width<1400 || _height<932){
 		_ktf1=_width/1400;
@@ -372,7 +378,7 @@ function resizeElements(_width, _height){
 
 
  $('.magazine').dblclick(function() {
-	zoomto();
+	//zoomto();
 });
 
  function zoomto(){
@@ -393,6 +399,10 @@ $("body").on("click", "#region2, #XMLID_144_, #XMLID_179_, .select_chanel", func
 
 $("body").on("click", ".select_region", function(event) {
 	$('.magazine').turn('page', 2);
+});
+
+$("body").on("click", ".chanel_popup_links_fullscreen", function(event) {
+	toggleFull();
 });
 
 $("body").on("click", ".chanels_list ul li", function(event) {
@@ -665,5 +675,50 @@ function getURL(){
 	}
 }
 
+
+
+function cancelFullScreen(el) {
+	var requestMethod = el.cancelFullScreen||el.webkitCancelFullScreen||el.mozCancelFullScreen||el.exitFullscreen;
+	if (requestMethod) { 
+		requestMethod.call(el);
+	} else if (typeof window.ActiveXObject !== "undefined") { 
+		var wscript = new ActiveXObject("WScript.Shell");
+		if (wscript !== null) {
+			wscript.SendKeys("{F11}");
+		}
+	}
+}
+
+function requestFullScreen(el) {
+	var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+
+	if (requestMethod) { 
+		requestMethod.call(el);
+	} else if (typeof window.ActiveXObject !== "undefined") { 
+		var wscript = new ActiveXObject("WScript.Shell");
+		if (wscript !== null) {
+			wscript.SendKeys("{F11}");
+		}
+	}
+	return false
+}
+
+function toggleFull() {
+	var elem = document.getElementById("chanel_popup_iframe");
+	var isInFullScreen = (document.fullScreenElement && document.fullScreenElement !== null) ||  (document.mozFullScreen || document.webkitIsFullScreen);
+	if (_isfullxcreen) {
+		_isfullxcreen=false;
+		elem.style.background="#ececec";
+	} else {
+		_isfullxcreen=true;
+		elem.style.background="#ececec";
+	}
+	if (isInFullScreen) {
+		cancelFullScreen(document);
+	} else {
+		requestFullScreen(elem);
+	}
+	return false;
+}
 
 
