@@ -128,7 +128,7 @@ function AnimateOnPage(_p){
 									$('.chanel_popup_links_pdf').attr('href', 'https://docs.google.com/presentation/d/'+_srt+'/export/pdf');
 									$('.chanel_popup_links_slide').attr('href', 'https://docs.google.com/presentation/d/'+_srt);
 									window.location.hash = "#slide"+_hash;
-								},8000);
+								},6000);
 							}
 						}
 					}
