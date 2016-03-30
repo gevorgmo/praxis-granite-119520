@@ -116,6 +116,7 @@ if (isset($user)) {
 		<div class="lineup_sheet"></div>	
 			<div class="magazine-viewport">
 				<div class="magazine" id="magazine">
+					<div ignore="1" class="start_icon"></div>
 					<div ignore="1" class="chanel_popup">
 						<div ignore="1" class="chanel_popup_close"></div>
 						<div ignore="1" class="chanel_popup_bg"></div>
@@ -256,7 +257,7 @@ if (isset($user)) {
 
 	yepnope({
 		test : Modernizr.csstransforms,
-		yep: ['js/lib/turn.min.js'],
+		yep: ['js/lib/turn.js'],
 		nope: ['js/lib/turn.html4.min.js', 'css/jquery.ui.html4.css'],
 		both: ['css/jquery.ui.css', 'js/magazine.js'],
 		complete: loadApp

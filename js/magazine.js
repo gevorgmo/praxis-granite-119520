@@ -2,8 +2,6 @@
 	Created by G.Manukyan 
 	gevorgmo@gmail.com
 */
-var _curPage=0;
-var _hash = window.location.hash;
 var _chanels=[
 	{name:'start'},
 	{name:'select_region'},
@@ -66,6 +64,23 @@ var _chanels=[
 	{name:'trending3',  presentation:''}
 ];
 var _isfullxcreen=false;
+var _curPage=0;
+var _hash = window.location.hash;
+var _firstTimeAnimation=true;
+var _startfirstTimeAnimatione=false;
+var _firstTimeAnimationDown=true;
+var _homapageanimation=setInterval(function() {
+	if(_startfirstTimeAnimatione){
+		if(_firstTimeAnimationDown){
+			_firstTimeAnimationDown=false;
+			$('.magazine').turn('peel', 'tr', true); 
+		}else {
+			_firstTimeAnimationDown=true;
+			$('.magazine').turn('stop', null, true); 
+		}
+	}
+}, 800);
+
 
 function AnimateOnPage(_p){
 	
@@ -73,17 +88,18 @@ function AnimateOnPage(_p){
 		if (_p==1) { 			
 			setTimeout(function(){ $('.page1_element1').css('opacity', '1'); }, 500);
 			setTimeout(function(){ $('.page1_element2').css('opacity', '1'); }, 1000);
-			setTimeout(function(){$('.magazine').turn('peel', 'tr'); }, 1500);
+			setTimeout(function(){_startfirstTimeAnimatione=true;}, 1500);
 			$('.magazine .p' + _p+' .page-bg').addClass('pageanimated');
 		} else if (_p==2 || _p==3) { 
 			setTimeout(function(){ $('.regions').css('opacity', '0.5'); }, 500);
 			setTimeout(function(){ $('.page2_element2').css('opacity', '1'); },1000);
 			$('.magazine .p' + _p+' .page-bg').addClass('pageanimated');
+			setTimeout(function(){_startfirstTimeAnimatione=true;}, 1500);
 		} else if (_p==4 || _p==5) { 
 			setTimeout(function(){ $('.page4_element1').css('opacity', '1'); }, 500);
 			$('.magazine .p' + _p+' .page-bg').addClass('pageanimated');
-		} else if(_p>=6 && _p!=34){
-			
+			setTimeout(function(){_startfirstTimeAnimatione=true;}, 1500);
+		} else if(_p>=6 && _p!=34){		
 			var dest1,dest2;
 			if(_p%2==1){ 
 				dest1=_p-1; 
@@ -114,6 +130,7 @@ function AnimateOnPage(_p){
 					setTimeout(function(){ $('#page'+dest2+'-it2').removeClass('notactive'); },5000);
 					setTimeout(function(){ $('#page'+dest2+'-it3').removeClass('notactive'); },5500);
 					setTimeout(function(){ $('#page'+dest2+'-it4').removeClass('notactive'); },6000);
+					setTimeout(function(){_startfirstTimeAnimatione=true;}, 7500);
 					if(_hash!=""){
 						_hash=parseInt(_hash.substr(6));
 						if(!isNaN(_hash)) {
@@ -137,8 +154,9 @@ function AnimateOnPage(_p){
 			}
 		} else if(_p==34){
 			$('.magazine .p' + _p+' .page-bg').addClass('pageanimated');
-			setTimeout(function(){ $('.magazine .p' + _p+' .page-bg .page_title_element').css('opacity', '1');},500);
-			setTimeout(function(){ $('.magazine .p' + _p+' .page-bg .page_text_left').css('opacity', '1');},1000);
+			setTimeout(function(){ $('.magazine .p34 .page-bg .page_title_element_2').css('opacity', '1');},500);
+			setTimeout(function(){ $('.magazine .p34 .page-bg .page_text_left').css('opacity', '1');},1000);
+			setTimeout(function(){ $('.magazine .p34 .page-bg .page_end_button').css('opacity', '1');},1000);
 		}
 	}
 	
@@ -381,6 +399,9 @@ $("body").on("click", ".page-item", function(event) {
 	$('.chanel_popup_links_pdf').attr('href', 'https://docs.google.com/presentation/d/'+_srt+'/export/pdf');
 	$('.chanel_popup_links_slide').attr('href', 'https://docs.google.com/presentation/d/'+_srt);
 	window.location.hash = "#slide"+_index;
+	var _src=$('.magazine .p' + _curPage+' .page-bg>.video_small').attr('src');
+	$('.magazine .p' + _curPage+' .page-bg>.video_small').attr('src','');
+	$('.magazine .p' + _curPage+' .page-bg>.video_small').attr('src',_src);
 }); 
  
 $("body").on("click", ".chanel_popup_close", function(event) {

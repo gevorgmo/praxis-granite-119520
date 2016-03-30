@@ -2762,9 +2762,7 @@ flipMethods = {
   },
 
   hideFoldedPage: function(animate) {
-
     var data = this.data().f;
-
     if (!data.point) return;
 
     var that = this,
@@ -2865,7 +2863,7 @@ flipMethods = {
   },
 
   _eventStart: function(e) {
-
+	
     var data = this.data().f,
       turn = data.opts.turn;
 
@@ -2898,7 +2896,7 @@ flipMethods = {
       e = (isTouch) ? e.originalEvent.touches : [e];
 
       if (data.corner) {
-
+		
         var pos = data.parent.offset();
         data.corner.x = e[0].pageX-pos.left;
         data.corner.y = e[0].pageY-pos.top;
@@ -2909,7 +2907,13 @@ flipMethods = {
         var point = flipMethods._isIArea.call(this, e[0]);
 
         if (point) {
-
+			////////////////////////////
+			if (_firstTimeAnimation) {
+				_firstTimeAnimation=false;
+				clearInterval(_homapageanimation);
+				$('.start_icon').hide();
+			}
+			///////////////////////////////
           if ((data.effect=='sheet' && point.corner.length==2)  || data.effect=='hard') {
             data.status = 'hover';
             var origin = flipMethods._c.call(this, point.corner, data.opts.cornerSize/2);
@@ -2921,6 +2925,13 @@ flipMethods = {
         } else {
           
           if (data.status=='hover') {
+			////////////////////////////
+			if (_firstTimeAnimation) {
+				_firstTimeAnimation=false;
+				clearInterval(_homapageanimation);
+				$('.start_icon').hide();
+			}
+			///////////////////////////////
             data.status = '';
             flipMethods.hideFoldedPage.call(this, true);
           }
@@ -2956,7 +2967,7 @@ flipMethods = {
   },
 
   hover: function(hover) {
-    
+     
     flipMethods.setData.call(this, {'hover': hover});
     return this;
 
