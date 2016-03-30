@@ -224,18 +224,7 @@ if (isset($user)) {
 		});
 		
 		$('.magazine').addClass('animated');
-		
-		// Load the HTML4 version if there's not CSS transform
-		$('.magazine').bind('mousewheel DOMMouseScroll', function(event){	
-			if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-				// scroll up
-				$('.magazine').turn('previous');
-			}else {
-				// scroll down
-				$('.magazine').turn('next');
-			}
-		});
-		
+
 		$( "#slider" ).slider({
 			min: 1,
 			max: numberOfViews(lookbook),

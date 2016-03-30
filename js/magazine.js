@@ -2,6 +2,7 @@
 	Created by G.Manukyan 
 	gevorgmo@gmail.com
 */
+var _curPage=0;
 var _hash = window.location.hash;
 var _chanels=[
 	{name:'start'},
@@ -172,6 +173,12 @@ function AnimateOnPage(_p){
 		$('.select_chanel').show();
 		$('.change_chanel').show();
 		$('.chanel_title_bg_mask').css('width',($('.chanel_title').width()+55)+'px');
+		if(_curPage>=6) {
+			var _src=$('.magazine .p' + _curPage+' .page-bg>.video_small').attr('src');
+			$('.magazine .p' + _curPage+' .page-bg>.video_small').attr('src','');
+			$('.magazine .p' + _curPage+' .page-bg>.video_small').attr('src',_src);
+		}
+		_curPage=_p%2==0 ? _p : _p-1;
 	}
 }
 
@@ -322,10 +329,12 @@ function resizeElements(_width, _height){
 		$('.page_right_list_title1,.page_right_list_title2').css({"font-size":(_ktf*22)+"px"});
 		$('.page_title_element_big').css({"font-size":(_ktf*60)+"px"});
 		$('.page_title_element_small').css({"font-size":(_ktf*30)+"px"});
+		$('.chanel_title_bg_mask').css('width',($('.chanel_title').width()+55)+'px');
 		cw=_width/2;
 		ch=_height;
 		$('.video-canvas').css({"width": cw+"px","height": ch+"px"});
 		$('.video-canvas').css({"width": cw+"px","height": ch+"px"});
+		
 	} else {
 		var _ktf=$(window).width()/1308;
 		$('.chanel_popup_buttons').hide();
