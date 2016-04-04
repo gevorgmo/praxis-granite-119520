@@ -203,28 +203,24 @@ function resizeViewport(){
   
  
 
-function getURL(){
+function getStarting(){
+	var _cp=1;
 	var _getUrl=$(location).attr('href');
 	var _poss1=_getUrl.indexOf("//")+2;
 	_getUrl=_getUrl.substring(_poss1);
-	_getUrl=_getUrl.substring(_getUrl.indexOf("/")+1);
-	if(_getUrl.length>2) {
+	if(_getUrl.split('/').length>1){
 		if(_getUrl.indexOf("#")>-1){
 			_getUrl=_getUrl.split('#')[0];
 		}
 		var _j=1;
-		var _u=-1;
 		_chanels.map(function(_i){
-			if(_i.name.replace(new RegExp(' ', 'g'),'_').replace(new RegExp('&', 'g'),'and').toLowerCase()==_getUrl.toLowerCase()) _u=_j;
+			if(_i.name.replace(new RegExp(' ', 'g'),'_').replace(new RegExp('&', 'g'),'and').replace(new RegExp(',', 'g'),'').toLowerCase()==_getUrl.toLowerCase()) _cp=_j;
 			_j++;
 		});
-		if(_u>=0) {
-			loadPage(_u);
-		} else {
-			loadPage(1);
-		}
 	}
-}
+	loadPage(_cp);
+	console.log(_cp);
+}	
 
 ////////////////////////////////////////////////////
 $(document).ready(function() {
@@ -317,9 +313,9 @@ $(document).ready(function() {
 	}).bind('orientationchange', function() {
 		resizeViewport();
 	});
+	
 	resizeViewport();
-	getURL();
 	
-	
+	getStarting();
 	
 });
