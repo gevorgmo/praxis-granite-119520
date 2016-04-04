@@ -16,21 +16,28 @@ from google.appengine.api import users
 
 from base import constants
 from base import handlers
-
+from user_agents import parse
 
 class LookbookHandler(handlers.BaseHandler):
   def get(self):
     user = users.get_current_user()
     acc='alex.denholm@gluttony.com,william.elfast@roundheadinteractive.com,gevorg.manukyan@roundheadinteractive.com,gevorgmo@gmail.com,alex.robete@gluttony.com,honor@personafilms.com,ahonor@gmail.com,nick.rhodes@gluttony.com,will.elfast@gluttony.com'
+    user_agent = parse(self.request.headers['User-Agent'])
     if user:
       email=user.email()
       if acc.find(email)>-1 :
         template = {'email': email, 'url': users.create_logout_url('/')}
-        self.render('lookbook.tpl', template)
+        if user_agent.is_pc:
+          self.render('lookbook.tpl', template)
+        else:
+          self.render('m_lookbook.tpl', template) 
       else:
           if email.find('@google.com')>-1:
             template = {'email': email, 'url': users.create_logout_url('/')}
-            self.render('lookbook.tpl', template)
+            if user_agent.is_pc:
+              self.render('lookbook.tpl', template)
+            else:
+              self.render('m_lookbook.tpl', template) 
           else:
             template = {'email': email}
             self.render('noaccess.tpl', template)

@@ -34,7 +34,7 @@ header a{text-decoration:none}
 #region6{top: 41%;left: 11%;}
 #region7{top: 54%;left: 33%;}
 #region8{top: 44%;left: 67%;}
-#region9{top: 54%;left: 66%;}
+#region9{top: 80%;left: 53%;}
 .regions_hover{opacity:0;width:100%;position:absolute;top:0;left:0;z-index:10;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
 .regions_hover img{width:100%;height:auto;}
 .top_title{font-family: 'Roboto', sans-serif;font-size:14px;font-weight:400;color:#757575;left:20px;top:65px;position:absolute;z-index: 10;}
@@ -98,7 +98,7 @@ header a{text-decoration:none}
 #map_hover2{right:0}
 .st0,.st1{fill:#87e8e9;stroke:#ffffff;fill-opacity:0;stroke-opacity:0.12;stroke-width:1.5px;}
 #XMLID_144_,#XMLID_179_{fill:#ffffff;fill-opacity:1;cursor:pointer;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
-#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_1305_{fill:#ffffff;fill-opacity:0.2;cursor:pointer;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
+#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_607_{fill:#ffffff;fill-opacity:0.2;cursor:pointer;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
 .triangle-item{position:absolute;top:0;left:0;z-index:10;}
 .triangle-item span{font-family:'Roboto', sans-serif;font-size:22px;line-height:28px;font-weight:400;color:#fff;display:block;margin-top:-13%;text-align:left;margin-left:32%}
 .triangle {position:relative;top:0;left:0;z-index:10;overflow:hidden;background-repeat:no-repeat;background-size:contain;cursor:pointer;width: 205px;height: 215px;}

@@ -429,7 +429,7 @@ $("body").on("mouseover",'.regions',  function() {
     var _id=$(this).attr('data-id'); 
 	$('#regions_hover2').css({'opacity':'0'});
 	$('#XMLID_144_,#XMLID_179_').css({'fill':'#ffffff','fill-opacity':'1'});
-	$('#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_1305_').css({'fill':'#ffffff','fill-opacity':'0.2'});
+	$('#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_607_').css({'fill':'#ffffff','fill-opacity':'0.2'});
 	$(this).addClass('hovered');
 	if(_id=="XMLID_144_"){
 		$('#XMLID_144_').css({'fill-opacity':'0'});
@@ -452,7 +452,7 @@ $("body").on("mouseover",'#map_hover1 path, #map_hover2 polygon, #map_hover2 pat
     var _id=$(this).attr('id'); 
 	$('#regions_hover2').css({'opacity':'0'});
 	$('#XMLID_144_,#XMLID_179_').css({'fill':'#ffffff','fill-opacity':'1'});
-	$('#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_1305_').css({'fill':'#ffffff','fill-opacity':'0.2'});
+	$('#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_607_').css({'fill':'#ffffff','fill-opacity':'0.2'});
 	$('.regions').removeClass('hovered');
 	
 	if(_id=="XMLID_144_" || _id=="XMLID_179_"){
@@ -483,8 +483,8 @@ $("body").on("mouseover",'#map_hover1 path, #map_hover2 polygon, #map_hover2 pat
 	}else if(_id=="XMLID_1297_"){
 		$("#XMLID_1297_").css({'fill':'#87e8e9','fill-opacity':'1'});
 		$('#region8').addClass('hovered');
-	}else if(_id=="XMLID_1305_"){
-		$("#XMLID_1305_").css({'fill':'#87e8e9','fill-opacity':'1'});
+	}else if(_id=="XMLID_607_"){
+		$("#XMLID_607_").css({'fill':'#87e8e9','fill-opacity':'1'});
 		$('#region9').addClass('hovered');
 	}
 });
@@ -527,7 +527,7 @@ function setPreview(view) {
 $("body").on("mouseout",'.regions, #map_hover1 path, #map_hover1 polygon, #map_hover2 path, #map_hover2 polygon',  function() {
 	$('#regions_hover2').css({'opacity':'0'});
 	$('#XMLID_144_,#XMLID_179_').css({'fill':'#ffffff','fill-opacity':'1'});
-	$('#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_1305_').css({'fill':'#ffffff','fill-opacity':'0.2'});
+	$('#XMLID_266_,#XMLID_828_,#XMLID_828_2,#XMLID_825_,#XMLID_825_2,#XMLID_114_,#XMLID_876_,#XMLID_759_,#XMLID_1297_,#XMLID_607_').css({'fill':'#ffffff','fill-opacity':'0.2'});
 	$('.regions').removeClass('hovered');
 });
 //////////////////////////////////////////////////////
