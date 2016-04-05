@@ -10,6 +10,7 @@
 <script type="text/javascript" src="js/extras/jquery.min.1.7.js"></script>
 <script type="text/javascript" src="js/extras/jquery-ui-1.8.20.custom.min.js"></script>
 <script type="text/javascript" src="js/extras/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="js/extras/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="js/m_script.js"></script>
 </head>
 <body>
@@ -19,13 +20,13 @@
 		<div class="left_menu_items" data-id="gotopage1">Homepage</div>
 		<div class="left_menu_items" data-id="gotopage2">Change Region</div>
 		<div class="left_menu_items" data-id="gotopage3">Change Google Preferred Product</div>
-		<div class="left_menu_items">More Resources</div>
-		<div class="left_menu_items">More Google Preferred Channels</div>
+		<a class="left_menu_items" href="https://login.corp.google.com/request?s=up.googleplex.com:443/uberproxy/79YPiyhn4FYqJJ/&d=https://saleshub.googleplex.com/page/google-preferred-lineups-global-resources%3Fupxsrf%3DADBfK3b93nj1SNvVIJ3G:1459202573304&maxAge=1200&authLevel=2000000&keyIds=MIG,ubk" target="_blank">More Resources</a>
+		<a class="left_menu_items" href="http://youtube.com/yt/lineups/index.html" target="_blank">More Google Preferred Channels</a>
 		<div class="left_menu_bottom">To download onesheet assets,<br>please visit the desktop version.</div>
 		<a class="left_menu_logout" href="{{url}}">Logout</a>
 	</div>
 	<div class="right_content_ovelay"></div>
-	<div class="right_content">
+	<div class="right_content">	
 		<div class="header">
 			<div class="top_menu_icon"></div>
 			<div class="change_chanel">
@@ -59,7 +60,7 @@
 		<div class="top_empty"></div>
 		<div class="magazine" id="magazine"><div class="page"></div></div>	
 		<div class="chanel_popup">
-			<div class="chanel_popup_close"></div>
+			<a class="chanel_popup_close" href="#"></a>
 			<div class="chanel_popup_bg"></div>
 			<div class="chanel_popup_cont" id="chanel_popup_iframe">
 				<div  class="chanel_popup_iframe"></div>

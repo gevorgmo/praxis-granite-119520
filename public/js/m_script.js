@@ -97,12 +97,12 @@ function AnimateOnPage(_p){
 			if(_hash!=""){
 				_hash=parseInt(_hash.substr(6));
 				if(!isNaN(_hash)) {
-					if(_chanels[_hash]){
+					if(_chanels[_hash-1]){
 						setTimeout(function(){ 
-							$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_hash].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
+							$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_hash-1].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
 							$('.chanel_popup_iframe_cont').css({"height":($('.chanel_popup_cont').height()+30)+"px"});
 							$('.chanel_popup').css('display','block').animate({'opacity':'1'}, 500);
-							var _srt=_chanels[_hash].presentation.split('/')[7];
+							var _srt=_chanels[_hash-1].presentation.split('/')[7];
 							$('.chanel_popup_links_pdf').attr('href', 'https://docs.google.com/presentation/d/'+_srt+'/export/pdf');
 							$('.chanel_popup_links_slide').attr('href', 'https://docs.google.com/presentation/d/'+_srt);
 							_hashchange=true;
@@ -139,7 +139,7 @@ function AnimateOnPage(_p){
 
 
 function loadPage(page) {
-	history.pushState({}, '', _chanels[parseInt(page-1, 10)].name.replace(new RegExp(' ', 'g'),'_').replace(new RegExp('&', 'g'),'and').replace(new RegExp(',', 'g'),'').toLowerCase());
+	history.pushState({}, '', _chanels[page-1].name.replace(new RegExp(' ', 'g'),'_').replace(new RegExp('&', 'g'),'and').replace(new RegExp(',', 'g'),'').toLowerCase());
 	$.ajax({url: 'pages/m_page' + page + '.html'}).done(function(pageHtml) {
 		$('.loader').remove();
 		$('.magazine .page').html(pageHtml);
@@ -157,7 +157,7 @@ function resizeViewport(){
 		$('.header').css({"height":(_ktf*129)+"px"});
 		$('.top_empty').css({"height":(_ktf*129)+"px"});
 		$('.top_menu_icon').css({"width":(_ktf*116)+"px", "height":(_ktf*129)+"px"});
-		$('.page_title').css({"font-size":(_ktf*80)+"px"});
+		$('.page_title').css({"font-size":(_ktf*80)+"px","line-height":(_ktf*96)+"px"});
 		$('.page_top_button').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*27)+"px "+(_ktf*52)+"px","border-radius":(_ktf*6)+"px"});
 		$('.page_center').css({"font-size":(_ktf*55)+"px","line-height":(_ktf*109)+"px"});
 		$('.video_small').css({'height':(_ktf*700)+'px'});
@@ -169,8 +169,8 @@ function resizeViewport(){
 		$('.chanel_popup_cont').css({"height":(_ktf*698)+"px", "margin-top" : "-"+(_ktf*349)+"px"});
 		$('.chanel_popup_iframe_cont').css({"height":(_ktf*698+30)+"px"});
 		$('.chanel_popup_close').css({"width":(_ktf*25)+"px","height":(_ktf*25)+"px" });
-		$('.chanel_popup_title').css({"font-size":(_ktf*24)+"px","line-height":(_ktf*37)+"px"});
-		$('.chanel_popup_links').css({"font-size":(_ktf*13)+"px", "line-height":(_ktf*37)+"px", "padding":"0 "+(_ktf*20)+"px", "margin-left":(_ktf*20)+"px"});
+		$('.chanel_popup_title').css({"font-size":(_ktf*45)+"px","line-height":(_ktf*68)+"px"});
+		$('.chanel_popup_links').css({"font-size":(_ktf*45)+"px", "line-height":(_ktf*68)+"px", "padding":"0 "+(_ktf*30)+"px", "margin-left":(_ktf*30)+"px"});
 		$('.page_bottom_side').css({"height":(_ktf*300)+"px" });
 		$('.left_menu_items').css({"font-size":(_ktf*60)+"px","margin":(_ktf*52)+"px 0" });
 		$('.left_menu_bottom').css({"font-size":(_ktf*45)+"px","margin":(_ktf*80)+"px 0 "+(_ktf*50)+"px 0" });
@@ -182,7 +182,7 @@ function resizeViewport(){
 		$('.triangle-item span').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*7)+"px 0","border-radius":(_ktf*6)+"px","line-height":(_ktf*44)+"px"});
 		$('.triangle p').css({"border-width":(_ktf*42)+"px 0px "+(_ktf*42)+"px "+(_ktf*76)+"px"});
 		$('.triangle').css({"width":Math.ceil(_ktf*283)+"px","height":Math.ceil(_ktf*295)+"px" });
-		$('.chanels_cont').css({'left': -(_ktf*30)+"px", 'top': -(_ktf*10)+"px"});
+		$('.chanels_cont').css({'left': -(_ktf*30)+"px", 'top': (_ktf*10)+"px"});
 		$('.chanels_cont,.chanel_title_bg, .chanels_list').css({"width":(_ktf*1170)+"px" });
 		$('.chanel_title').css({"font-size":(_ktf*60)+"px","line-height":(_ktf*129)+"px","padding-right":(_ktf*50)+"px"});
 		$('.chanel_title_bg_mask').css({'width':($('.chanel_title').width()+$(window).width()/11)+'px', 'height':$('.chanel_title').height()*2+'px'});
@@ -230,12 +230,28 @@ function resizeViewport(){
 ////////////////////////////////////////////////////
 $(document).ready(function() {
 	
-	$("body").on("click", ".page-item, .page_top_button", function(event) {
-		var _index=parseInt($(this).attr('id').substr(12))+3;
-		$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_index].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
+	$("body").on("vclick", ".page_top_button", function(event) {
+		var _index=_curPage;
+		$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_index-1].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
 		$('.chanel_popup_iframe_cont').css({"height":($('.chanel_popup_cont').height()+30)+"px"});
 		$('.chanel_popup').css('display','block').animate({'opacity':'1'}, 500);
-		var _srt=_chanels[_index].presentation.split('/')[7];
+		var _srt=_chanels[_index-1].presentation.split('/')[7];
+		$('.chanel_popup_links_pdf').attr('href', 'https://docs.google.com/presentation/d/'+_srt+'/export/pdf');
+		$('.chanel_popup_links_slide').attr('href', 'https://docs.google.com/presentation/d/'+_srt);
+		_hashchange=true;
+		window.location.hash = "#slide"+_index;
+		var _src=$('.magazine .page .video_small').attr('src');
+		$('.magazine .page .video_small').attr('src','');
+		$('.magazine .page .video_small').attr('src',_src);
+	}); 
+	
+	
+	$("body").on("vclick", ".page-item", function(event) {
+		var _index=parseInt($(this).attr('id').substr(12))+4;
+		$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_index-1].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
+		$('.chanel_popup_iframe_cont').css({"height":($('.chanel_popup_cont').height()+30)+"px"});
+		$('.chanel_popup').css('display','block').animate({'opacity':'1'}, 500);
+		var _srt=_chanels[_index-1].presentation.split('/')[7];
 		$('.chanel_popup_links_pdf').attr('href', 'https://docs.google.com/presentation/d/'+_srt+'/export/pdf');
 		$('.chanel_popup_links_slide').attr('href', 'https://docs.google.com/presentation/d/'+_srt);
 		_hashchange=true;
@@ -245,7 +261,7 @@ $(document).ready(function() {
 		$('.magazine .page .video_small').attr('src',_src);
 	}); 
 	 
-	$("body").on("click", ".chanel_popup_close", function(event) {
+	$("body").on("vclick", ".chanel_popup_bg, .chanel_popup_close", function(event) {
 		$('.chanel_popup').animate({'opacity':'0'}, 500, function(){
 			$(this).css('display','none');
 			$('.chanel_popup_iframe').html(''); 
@@ -254,8 +270,8 @@ $(document).ready(function() {
 		});
 	});
 	
-	
-	$("body").on("click", ".top_menu_icon", function(event) {
+
+	$("body").on("vclick", ".top_menu_icon", function(event) {
 		$('.right_content').css({
 			'left':'75%',
 			'-webkit-filter': 'blur(5px)',
@@ -269,56 +285,65 @@ $(document).ready(function() {
 		setTimeout(function(){
 			$('.right_content_ovelay').css({ 'opacity':'0.5'});
 			$('.left_menu').css({'left':'0'});
-		},1);
+		},10);
+		$('.change_chanel').removeClass('opened');
+		$(".chanels_list").hide();
 	});
 	
-	$("body").on("click", ".left_menu_close, .right_content_ovelay", function(event) {
+	$("body").on("vclick", ".left_menu_close, .right_content_ovelay", function(event) {
 		closeMenu();
 	});
 	
-	
-	$("body").on("click", ".page_top_button2", function(event) {
+	$("body").on("vmouseup", ".page_top_button2", function(event) {
 		var _index=parseInt($(this).attr('data-id').substr(8));
 		$('.magazine .page').removeClass('pageloaded').empty();
-		$('<div class="loader"></div>').appendTo('.right_content');
+		$('<div class="loader"></div>').appendTo('body');
 		loadPage(_index);
-		 event.preventDefault();
+		event.preventDefault();
+		event.stopPropagation()
 	});
 	
-	$("body").on("click", ".triangle-item", function(event) {
+	$("body").on("vclick", ".triangle-item", function(event) {
 		var _index=parseInt($(this).attr('data-id').substr(8));
 		$('.magazine .page').removeClass('pageloaded').empty();
-		$('<div class="loader"></div>').appendTo('.right_content');
+		$('<div class="loader"></div>').appendTo('body');
 		loadPage(_index);
 	});
 	
-	$("body").on("click", ".left_menu_items", function(event) {
+	$("body").on("vclick", ".left_menu_items", function(event) {
 		var _index=parseInt($(this).attr('data-id').substr(8));
 		$('.magazine .page').removeClass('pageloaded').empty();
-		$('<div class="loader"></div>').appendTo('.right_content');
+		$('<div class="loader"></div>').appendTo('body');
 		loadPage(_index);
 		closeMenu();
 	});
 	
-	$("body").on("click", ".chanels_list ul li", function(event) {
+	$("body").on("vclick", ".chanels_list ul li", function(event) {
 		var _index=$(this).attr('id').substr(8);
 		$('.magazine .page').removeClass('pageloaded').empty();
-		$('<div class="loader"></div>').appendTo('.right_content');
+		$('<div class="loader"></div>').appendTo('body');
 		$('.change_chanel').removeClass('opened');
 		$(".chanels_list").hide();
 		loadPage(_index);
 	});
 	
-	$("body").on("click", ".chanel_title", function(event) {
-		if($(this).parent().hasClass('opened')){
-			$(this).parent().removeClass('opened');
+	$("body").on("vclick", ".change_chanel", function(event) {
+		if($(this).hasClass('opened')){
+			$(this).removeClass('opened');
 			$(".chanels_list").hide();
 		}else{
-			$(this).parent().addClass('opened');
+			$(this).addClass('opened');
 			$(".chanels_list").show();
 		}
 	});
 	
+	$("body").on("vmouseover", ".triangle", function(event) {
+		$(this).addClass('selected');
+	});
+	
+	$("body").on("vmouseout", ".triangle", function(event) {
+		$(this).removeClass('selected');
+	});
 	
 	$(window).resize(function() {
 		resizeViewport();
