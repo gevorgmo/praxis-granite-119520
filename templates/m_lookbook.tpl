@@ -26,38 +26,37 @@
 	</div>
 	<div class="right_content_ovelay"></div>
 	<div class="right_content">
-		<div class="header"><div class="top_menu_icon"></div><div class="chanel_title"><span class="chanel_title_text"></span><img  class="chanel_title_arr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAACBCAMAAAC8VLkiAAAAolBMVEUzMzP///8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzOI8hdOAAAANXRSTlMAABITFB8gISIjJCUmJygpKis0Njc4OTo7PD0+dLq7vb7Oz9/g4eLj5OXm5+jp7/Dx8vP09SJ6M7kAAAEfSURBVHgB7dXZWsIwEAXgI2VfKBQRKCoCpeyWhXn/VxNxopUkfsGvVzrnKpmc/zaDu1/lvzFhwoQJEyZMmDBhwuCWDFluFFj7wShnYd6YEpsLXmnsGZk3IaKkY1SdhIgmnoHlz+rd3dvU2eV19kz04bqa6ib89qSz9la53pV6UGrb1hlaG7PrKbVpwcDgK7frp1R/x9O1DyODv+bGfmBUFobm6toN9jxZNWFhaXcIL/fwoFQDPzA0ltw7hmm1ZGVjqH+6IYZHPi/qsDN2C+6eHk+asjPU5vQ98xocGKrKsarCiaESp1RcgSNDOf5SZbgwdjNWM1ZuDKXooqISbmIoRqycGbspTYu4maHwUsjsn/z7G0eYMGHChAkTJkyYsDdPbVTgaV9iIQAAAABJRU5ErkJggg==" /></div></div>
-		<div class="loader"></div>
-		<div class="top_empty"></div>
-		<div class="top_title">
-			<div class="select_region"></div>
-			<div class="select_chanel"></div>
-			<div class="change_chanel">			
+		<div class="header">
+			<div class="top_menu_icon"></div>
+			<div class="change_chanel">
+				<div class="chanel_title"></div>
 				<div class="chanels_cont">
 					<div class="chanel_title_bg_mask"><div class="chanel_title_bg"></div></div>
 					<div class="chanels_list">
-						<ul id="chanels_list1">
-							<li id="chanelid1">Beauty & Fashion</li>
-							<li id="chanelid2">Comedy</li>
-							<li id="chanelid3">Entertainment & Pop Culture</li>
-							<li id="chanelid4">Parenting & Family</li>
-							<li id="chanelid5">Music</li>
-							<li id="chanelid6">Video Gaming</li>
-							<li id="chanelid7">Cars, Trucks & Racing</li>
+						<ul id="chl1">
+							<li id="chanelid4">Beauty & Fashion</li>
+							<li id="chanelid5">Comedy</li>
+							<li id="chanelid6">Entertainment & Pop Culture</li>
+							<li id="chanelid7">Parenting & Family</li>
+							<li id="chanelid8">Music</li>
+							<li id="chanelid9">Video Gaming</li>
+							<li id="chanelid10">Cars, Trucks & Racing</li>
 						</ul>
-						<ul id="chanels_list2">
-							<li id="chanelid8">Food & Recipes</li>
-							<li id="chanelid9">News</li>
-							<li id="chanelid10">Science & Education</li>
-							<li id="chanelid11">Sports</li>
-							<li id="chanelid12">Technology</li>
-							<li id="chanelid13">Spanish Language</li>
-							<li id="chanelid14">Breakout Videos</li>
+						<ul id="chl2">
+							<li id="chanelid11">Food & Recipes</li>
+							<li id="chanelid12">News</li>
+							<li id="chanelid13">Science & Education</li>
+							<li id="chanelid14">Sports</li>
+							<li id="chanelid15">Technology</li>
+							<li id="chanelid16">Spanish Language</li>
+							<li id="chanelid17">Breakout Videos</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="loader"></div>
+		<div class="top_empty"></div>
 		<div class="magazine" id="magazine"><div class="page"></div></div>	
 		<div class="chanel_popup">
 			<div class="chanel_popup_close"></div>
