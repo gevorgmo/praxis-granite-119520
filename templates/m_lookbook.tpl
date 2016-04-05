@@ -32,27 +32,27 @@
 				<div class="chanel_title"></div>
 				<div class="chanels_cont">
 					<div class="chanel_title_bg_mask"><div class="chanel_title_bg"></div></div>
-					<div class="chanels_list">
-						<ul id="chl1">
-							<li id="chanelid4">Beauty & Fashion</li>
-							<li id="chanelid5">Comedy</li>
-							<li id="chanelid6">Entertainment & Pop Culture</li>
-							<li id="chanelid7">Parenting & Family</li>
-							<li id="chanelid8">Music</li>
-							<li id="chanelid9">Video Gaming</li>
-							<li id="chanelid10">Cars, Trucks & Racing</li>
-						</ul>
-						<ul id="chl2">
-							<li id="chanelid11">Food & Recipes</li>
-							<li id="chanelid12">News</li>
-							<li id="chanelid13">Science & Education</li>
-							<li id="chanelid14">Sports</li>
-							<li id="chanelid15">Technology</li>
-							<li id="chanelid16">Spanish Language</li>
-							<li id="chanelid17">Breakout Videos</li>
-						</ul>
-					</div>
 				</div>
+			</div>
+			<div class="chanels_list">
+				<ul id="chl1">
+					<li id="chanelid4">Beauty & Fashion</li>
+					<li id="chanelid5">Comedy</li>
+					<li id="chanelid6">Entertainment & Pop Culture</li>
+					<li id="chanelid7">Parenting & Family</li>
+					<li id="chanelid8">Music</li>
+					<li id="chanelid9">Video Gaming</li>
+					<li id="chanelid10">Cars, Trucks & Racing</li>
+				</ul>
+				<ul id="chl2">
+					<li id="chanelid11">Food & Recipes</li>
+					<li id="chanelid12">News</li>
+					<li id="chanelid13">Science & Education</li>
+					<li id="chanelid14">Sports</li>
+					<li id="chanelid15">Technology</li>
+					<li id="chanelid16">Spanish Language</li>
+					<li id="chanelid17">Breakout Videos</li>
+				</ul>
 			</div>
 		</div>
 		<div class="loader"></div>

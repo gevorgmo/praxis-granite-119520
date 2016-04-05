@@ -184,13 +184,13 @@ function AnimateOnPage(_p){
 		$('.change_chanel').hide();
 	}else  if(_p<6){
 		$('.select_region').html('Choose Your Market &gt');
-		$('.select_chanel').html('US Channel Lineups');
+		$('.select_chanel').html('US Google Preferred');
 		$('.select_region').show();
 		$('.select_chanel').show();
 		$('.change_chanel').hide();
 	}else  if(_p>=6){
 		$('.select_region').html('Choose Your Market &gt');
-		$('.select_chanel').html('US Channel Lineups &gt');
+		$('.select_chanel').html('US Google Preferred &gt');
 		$('.chanel_title').html(_chanels[parseInt(_p/2, 10)].name);
 		$('.chanels_list ul li').removeClass('selected');
 		$('#chanelid'+parseInt(_p/2-2, 10)).addClass('selected');
