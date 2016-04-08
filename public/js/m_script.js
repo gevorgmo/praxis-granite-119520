@@ -182,12 +182,11 @@ function resizeViewport(){
 		$('.triangle-item span').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*7)+"px 0","border-radius":(_ktf*6)+"px","line-height":(_ktf*44)+"px"});
 		$('.triangle p').css({"border-width":(_ktf*42)+"px 0px "+(_ktf*42)+"px "+(_ktf*76)+"px"});
 		$('.triangle').css({"width":Math.ceil(_ktf*283)+"px","height":Math.ceil(_ktf*295)+"px" });
-		$('.chanels_cont').css({'left': -(_ktf*30)+"px", 'top': (_ktf*10)+"px"});
-		$('.chanels_cont,.chanel_title_bg, .chanels_list').css({"width":(_ktf*1170)+"px" });
+		$('.chanel_title_bg, .chanels_list').css({"width":(_ktf*1170)+"px" });
 		$('.chanel_title').css({"font-size":(_ktf*60)+"px","line-height":(_ktf*129)+"px","padding-right":(_ktf*50)+"px"});
-		$('.chanel_title_bg_mask').css({'width':($('.chanel_title').width()+$(window).width()/11)+'px', 'height':$('.chanel_title').height()*2+'px'});
+
 		$('.chanels_list ul li').css({"font-size":(_ktf*45)+"px", "margin":(_ktf*50)+"px 0 "});
-		$('.chanel_title_bg').css('margin-left', -($('.chanels_list').width()-$('.chanel_title_bg_mask').width())/2+"px");
+		$('.chanel_title_bg').css('margin-left', -($('.chanels_list').width()-$('.chanels_cont').width())/2+"px");
 		$('.chanels_list').css({'margin-left': -$('.chanels_list').width()/2+"px", "top":(_ktf*129)+"px"});
 		$('.chanel_popup_close').css({"width":Math.ceil(_ktf*80)+"px","height":Math.ceil(_ktf*80)+"px" });
 		$('.chanels_list ul').css({"padding-left":(_ktf*50)+"px"});
@@ -230,7 +229,7 @@ function resizeViewport(){
 ////////////////////////////////////////////////////
 $(document).ready(function() {
 	
-	$("body").on("vclick", ".page_top_button", function(event) {
+	$("body").on("click", ".page_top_button", function(event) {
 		var _index=_curPage;
 		$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_index-1].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
 		$('.chanel_popup_iframe_cont').css({"height":($('.chanel_popup_cont').height()+30)+"px"});
@@ -246,7 +245,7 @@ $(document).ready(function() {
 	}); 
 	
 	
-	$("body").on("vclick", ".page-item", function(event) {
+	$("body").on("click", ".page-item", function(event) {
 		var _index=parseInt($(this).attr('id').substr(12))+4;
 		$('.chanel_popup_iframe').html('<iframe src="'+_chanels[_index-1].presentation+'" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class="chanel_popup_iframe_cont"></iframe>');
 		$('.chanel_popup_iframe_cont').css({"height":($('.chanel_popup_cont').height()+30)+"px"});
@@ -261,7 +260,7 @@ $(document).ready(function() {
 		$('.magazine .page .video_small').attr('src',_src);
 	}); 
 	 
-	$("body").on("vclick", ".chanel_popup_bg, .chanel_popup_close", function(event) {
+	$("body").on("click", ".chanel_popup_bg, .chanel_popup_close", function(event) {
 		$('.chanel_popup').animate({'opacity':'0'}, 500, function(){
 			$(this).css('display','none');
 			$('.chanel_popup_iframe').html(''); 
@@ -271,7 +270,7 @@ $(document).ready(function() {
 	});
 	
 
-	$("body").on("vclick", ".top_menu_icon", function(event) {
+	$("body").on("click", ".top_menu_icon", function(event) {
 		$('.right_content').css({
 			'left':'75%',
 			'-webkit-filter': 'blur(5px)',
@@ -290,35 +289,37 @@ $(document).ready(function() {
 		$(".chanels_list").hide();
 	});
 	
-	$("body").on("vclick", ".left_menu_close, .right_content_ovelay", function(event) {
+	$("body").on("click", ".left_menu_close, .right_content_ovelay", function(event) {
+		closeMenu();
+	});
+
+	$("body").on("touchend", ".page_top_button2", function(event) {
+		var _index=parseInt($(this).attr('data-id').substr(8));
+		$('.magazine .page').removeClass('pageloaded').empty();
+		$('<div class="loader"></div>').appendTo('body');
+		loadPage(_index);
+	});
+
+
+
+	$("body").on("click", ".triangle-item", function(event) {
+		var _index=parseInt($(this).attr('data-id').substr(8));
+		$('.magazine .page').removeClass('pageloaded').empty();
+		$('<div class="loader"></div>').appendTo('body');
+		loadPage(_index);
+	});
+	
+	
+	
+	$("body").on("click", ".left_menu_items", function(event) {
+		var _index=parseInt($(this).attr('data-id').substr(8));
+		$('.magazine .page').removeClass('pageloaded').empty();
+		$('<div class="loader"></div>').appendTo('body');
+		loadPage(_index);
 		closeMenu();
 	});
 	
-	$("body").on("vmouseup", ".page_top_button2", function(event) {
-		var _index=parseInt($(this).attr('data-id').substr(8));
-		$('.magazine .page').removeClass('pageloaded').empty();
-		$('<div class="loader"></div>').appendTo('body');
-		loadPage(_index);
-		event.preventDefault();
-		event.stopPropagation()
-	});
-	
-	$("body").on("vclick", ".triangle-item", function(event) {
-		var _index=parseInt($(this).attr('data-id').substr(8));
-		$('.magazine .page').removeClass('pageloaded').empty();
-		$('<div class="loader"></div>').appendTo('body');
-		loadPage(_index);
-	});
-	
-	$("body").on("vclick", ".left_menu_items", function(event) {
-		var _index=parseInt($(this).attr('data-id').substr(8));
-		$('.magazine .page').removeClass('pageloaded').empty();
-		$('<div class="loader"></div>').appendTo('body');
-		loadPage(_index);
-		closeMenu();
-	});
-	
-	$("body").on("vclick", ".chanels_list ul li", function(event) {
+	$("body").on("click", ".chanels_list ul li", function(event) {
 		var _index=$(this).attr('id').substr(8);
 		$('.magazine .page').removeClass('pageloaded').empty();
 		$('<div class="loader"></div>').appendTo('body');
@@ -327,7 +328,7 @@ $(document).ready(function() {
 		loadPage(_index);
 	});
 	
-	$("body").on("vclick", ".change_chanel", function(event) {
+	$("body").on("click", ".change_chanel", function(event) {
 		if($(this).hasClass('opened')){
 			$(this).removeClass('opened');
 			$(".chanels_list").hide();
@@ -337,11 +338,11 @@ $(document).ready(function() {
 		}
 	});
 	
-	$("body").on("vmouseover", ".triangle", function(event) {
+	$("body").on("touchstart", ".triangle", function(event) {
 		$(this).addClass('selected');
 	});
 	
-	$("body").on("vmouseout", ".triangle", function(event) {
+	$("body").on("touchend", ".triangle", function(event) {
 		$(this).removeClass('selected');
 	});
 	

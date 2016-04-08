@@ -117,17 +117,18 @@ _CONFIG = {
         'default-src': '\'self\'',
         # Disallow Flash, etc.
         'object-src': '\'none\'',
+		'connect-src': '\'self\' *.google.com/url',
         # Google Analytics.
         'script-src':  '\'self\' https://www.google-analytics.com/analytics.js',
         # Maps, YouTube provide <iframe> based embedding at these URIs.
-        'child-src':   '\'self\'',
+        'child-src':   '\'self\' https://youtube.googleapis.com/embed https://drive.google.com https://docs.google.com/a/gluttony.com/vt https://googleads.g.doubleclick.net/pagead/id',
         # Deprecated. Used for supporting browsers that use CSP 1.0 only.
-        'frame-src':  '\'self\' https://drive.google.com https://docs.google.com',
+        'frame-src':  '\'self\' https://youtube.googleapis.com/embed https://drive.google.com https://docs.google.com/a/gluttony.com/vt https://googleads.g.doubleclick.net/pagead/id https://docs.google.com/presentation/d/ https://docs.google.com/a/google.com/presentation/d/',
         # In generated code from http://www.google.com/fonts
         'style-src':   '\'self\' \'unsafe-inline\' https://fonts.googleapis.com/css',
         # https://developers.google.com/fonts/docs/technical_considerations
         'font-src':   '\'self\' https://fonts.googleapis.com https://fonts.gstatic.com',
-		'img-src':    '\'self\' data: https://www.google-analytics.com/collect https://www.google-analytics.com/r/collect *.appspot.com https://ssl.gstatic.com/docs/documents/share/images/locked_doc-2.svg http://googlepreferredlookbook.com/pics/logo.png',
+		'img-src':    '\'self\' data: https://www.google-analytics.com/collect https://www.google-analytics.com/r/collect *.appspot.com https://ssl.gstatic.com/docs/documents/share/images/locked_doc-2.svg http://googlepreferredlookbook.com/pics/logo.png https://docs.google.com/a/gluttony.com/vt',
         'report-uri': '/csp',
         'reportOnly': base.constants.DEBUG,
     }

@@ -119,8 +119,8 @@ function loadApp() {
 
 	yepnope({
 		test : Modernizr.csstransforms,
-		yep: ['js/lib/turn.js'],
-		nope: ['js/lib/turn.html4.min.js', 'css/jquery.ui.html4.css'],
+		yep: ['js/third_party/turnjs/turn.js'],
+		nope: ['js/third_party/turnjs/turn.html4.min.js', 'css/jquery.ui.html4.css'],
 		both: ['css/jquery.ui.css', 'js/magazine.js'],
 		complete: loadApp
 	});

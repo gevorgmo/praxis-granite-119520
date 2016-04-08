@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
 <title>Google Lookbook</title>
-<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,user-scalable=no,minimal-ui">
+<meta name="viewport" content="width=device-width,minimal-ui">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300italic,100italic,300,400italic,500,700,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'></link>
 <link type="text/css" rel="stylesheet" href="css/m_style.css"></link>
 <link rel="shortcut icon" href="pics/favicon.ico">
-<script type="text/javascript" src="js/extras/jquery.min.1.7.js"></script>
-<script type="text/javascript" src="js/extras/jquery-ui-1.8.20.custom.min.js"></script>
-<script type="text/javascript" src="js/extras/jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="js/extras/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/third_party/jquery/jquery.min.1.7.js"></script>
 <script type="text/javascript" src="js/m_script.js"></script>
 </head>
 <body>
@@ -31,9 +28,7 @@
 			<div class="top_menu_icon"></div>
 			<div class="change_chanel">
 				<div class="chanel_title"></div>
-				<div class="chanels_cont">
-					<div class="chanel_title_bg_mask"><div class="chanel_title_bg"></div></div>
-				</div>
+				<div class="chanels_cont"></div>
 			</div>
 			<div class="chanels_list">
 				<ul id="chl1">
@@ -64,12 +59,6 @@
 			<div class="chanel_popup_bg"></div>
 			<div class="chanel_popup_cont" id="chanel_popup_iframe">
 				<div  class="chanel_popup_iframe"></div>
-				<div  class="chanel_popup_buttons">
-					<span  class="chanel_popup_title">DOWNLOAD</span>
-					<a  class="chanel_popup_links chanel_popup_links_pdf" target="_blank" href="#">PDF</a>
-					<a  class="chanel_popup_links chanel_popup_links_slide"  target="_blank" href="#">SLIDES</a>
-					<div style="clear:both"></div>
-				</div>
 			</div>
 		</div>
 	</div>

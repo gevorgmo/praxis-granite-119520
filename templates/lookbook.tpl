@@ -1,16 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Google Lookbook New</title>
-<meta name="viewport" content="width=1200" />
+<title>Google Lookbook</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300italic,100italic,300,400italic,500,700,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'></link>
 <link type="text/css" rel="stylesheet" href="css/magazine.css"></link>
 <link rel="shortcut icon" href="pics/favicon.ico">
-<script type="text/javascript" src="js/extras/jquery.min.1.7.js"></script>
-<script type="text/javascript" src="js/extras/jquery-ui-1.8.20.custom.min.js"></script>
-<script type="text/javascript" src="js/extras/jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="js/extras/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript" src="js/third_party/jquery/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="js/third_party/jquery/jquery-ui-1.8.20.custom.min.js"></script>
+<script type="text/javascript" src="js/third_party/jquery/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="js/third_party/modernizrjs/modernizr.2.5.3.min.js"></script>
 </head>
 <body>
 	<header><div class="header-user-content">Welcome, {{email}}! (<a href="{{url}}">Log Out</a>)</div></header>
