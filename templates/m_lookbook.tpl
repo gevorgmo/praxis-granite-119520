@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Google Lookbook</title>
-<meta name="viewport" content="width=device-width,minimal-ui">
+<meta name="viewport" content="width=device-width">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300italic,100italic,300,400italic,500,700,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'></link>
 <link type="text/css" rel="stylesheet" href="css/m_style.css"></link>

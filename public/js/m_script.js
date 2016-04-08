@@ -70,9 +70,6 @@ var _hashchange=false;
 function AnimateOnPage(_p){
 	if($('.magazine .page').hasClass('pageloaded')){	
 		_curPage=_p;
-		$('.select_region').hide();
-		$('.select_chanel').hide();
-		$('.change_chanel').hide();
 		if (_p==1) {			
 			setTimeout(function(){ $('.page_element1').css('opacity', '1'); }, 500);
 			setTimeout(function(){ $('.page_element2').css('opacity', '1'); }, 1000);
@@ -154,21 +151,20 @@ function loadPage(page) {
 function resizeViewport(){
 		_ktf=$(window).width()/1242;
 
-		$('.header').css({"height":(_ktf*129)+"px"});
-		$('.top_empty').css({"height":(_ktf*129)+"px"});
-		$('.top_menu_icon').css({"width":(_ktf*116)+"px", "height":(_ktf*129)+"px"});
+		$('.header').css({"height":(_ktf*150)+"px"});
+		$('.top_empty').css({"height":(_ktf*150)+"px"});
+		$('.top_menu_icon').css({"width":(_ktf*116)+"px", "height":(_ktf*150)+"px"});
 		$('.page_title').css({"font-size":(_ktf*80)+"px","line-height":(_ktf*96)+"px"});
 		$('.page_top_button').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*27)+"px "+(_ktf*52)+"px","border-radius":(_ktf*6)+"px"});
 		$('.page_center').css({"font-size":(_ktf*55)+"px","line-height":(_ktf*109)+"px"});
 		$('.video_small').css({'height':(_ktf*700)+'px'});
 		$('.page-item-triangle p').css({"border-width":(_ktf*42)+"px 0px "+(_ktf*42)+"px "+(_ktf*76)+"px"});
-		$('.page-item-triangle').css({"width":(_ktf*295)+"px","height":(_ktf*304)+"px" });
+		$('.page-item-triangle').css({"width":(_ktf*341)+"px","height":(_ktf*350)+"px" });
 		$('.page-item span').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*27)+"px 0","border-radius":(_ktf*6)+"px"});
 		$('.page-item.doubleline span').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*7)+"px 0","border-radius":(_ktf*6)+"px","line-height":(_ktf*44)+"px"});
 		$('.page_bottom h3').css({"font-size":(_ktf*55)+"px","line-height":(_ktf*109)+"px"});
 		$('.chanel_popup_cont').css({"height":(_ktf*698)+"px", "margin-top" : "-"+(_ktf*349)+"px"});
 		$('.chanel_popup_iframe_cont').css({"height":(_ktf*698+30)+"px"});
-		$('.chanel_popup_close').css({"width":(_ktf*25)+"px","height":(_ktf*25)+"px" });
 		$('.chanel_popup_title').css({"font-size":(_ktf*45)+"px","line-height":(_ktf*68)+"px"});
 		$('.chanel_popup_links').css({"font-size":(_ktf*45)+"px", "line-height":(_ktf*68)+"px", "padding":"0 "+(_ktf*30)+"px", "margin-left":(_ktf*30)+"px"});
 		$('.page_bottom_side').css({"height":(_ktf*300)+"px" });
@@ -181,15 +177,15 @@ function resizeViewport(){
 		$('.page_top_button2').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*27)+"px "+(_ktf*52)+"px","border-radius":(_ktf*6)+"px"});
 		$('.triangle-item span').css({"font-size":(_ktf*40)+"px", "padding":(_ktf*7)+"px 0","border-radius":(_ktf*6)+"px","line-height":(_ktf*44)+"px"});
 		$('.triangle p').css({"border-width":(_ktf*42)+"px 0px "+(_ktf*42)+"px "+(_ktf*76)+"px"});
-		$('.triangle').css({"width":Math.ceil(_ktf*283)+"px","height":Math.ceil(_ktf*295)+"px" });
+		$('.triangle').css({"width":Math.ceil(_ktf*330)+"px","height":Math.ceil(_ktf*346)+"px" });
 		$('.chanel_title_bg, .chanels_list').css({"width":(_ktf*1170)+"px" });
-		$('.chanel_title').css({"font-size":(_ktf*60)+"px","line-height":(_ktf*129)+"px","padding-right":(_ktf*50)+"px"});
-
+		$('.chanel_title').css({"font-size":(_ktf*60)+"px","line-height":(_ktf*150)+"px","padding-right":(_ktf*50)+"px"});
 		$('.chanels_list ul li').css({"font-size":(_ktf*45)+"px", "margin":(_ktf*50)+"px 0 "});
 		$('.chanel_title_bg').css('margin-left', -($('.chanels_list').width()-$('.chanels_cont').width())/2+"px");
-		$('.chanels_list').css({'margin-left': -$('.chanels_list').width()/2+"px", "top":(_ktf*129)+"px"});
-		$('.chanel_popup_close').css({"width":Math.ceil(_ktf*80)+"px","height":Math.ceil(_ktf*80)+"px" });
+		$('.chanels_list').css({'margin-left': -$('.chanels_list').width()/2+"px", "top":(_ktf*148)+"px"});
+		$('.chanel_popup_close').css({"width":Math.ceil(_ktf*150)+"px","height":Math.ceil(_ktf*150)+"px" });
 		$('.chanels_list ul').css({"padding-left":(_ktf*50)+"px"});
+		$('.left_menu_close').css({"width":Math.ceil(_ktf*150)+"px","height":Math.ceil(_ktf*150)+"px", "right":-Math.ceil(_ktf*150)+"px"});
 		
 }
 	function closeMenu(){
@@ -343,6 +339,14 @@ $(document).ready(function() {
 	});
 	
 	$("body").on("touchend", ".triangle", function(event) {
+		$(this).removeClass('selected');
+	});
+	
+	$("body").on("touchstart", ".page-item-triangle", function(event) {
+		$(this).addClass('selected');
+	});
+	
+	$("body").on("touchend", ".page-item-triangle", function(event) {
 		$(this).removeClass('selected');
 	});
 	
