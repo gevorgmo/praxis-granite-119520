@@ -128,7 +128,7 @@ _CONFIG = {
         'style-src':   '\'self\' \'unsafe-inline\' https://fonts.googleapis.com/css',
         # https://developers.google.com/fonts/docs/technical_considerations
         'font-src':   '\'self\' https://fonts.googleapis.com https://fonts.gstatic.com',
-		'img-src':    '\'self\' data: https://www.google-analytics.com/collect https://www.google-analytics.com/r/collect *.appspot.com https://ssl.gstatic.com/docs/documents/share/images/locked_doc-2.svg http://googlepreferredlookbook.com/pics/logo.png https://docs.google.com/a/gluttony.com/vt',
+		'img-src':    '\'self\' data: https://www.google-analytics.com/collect https://www.google-analytics.com/r/collect *.appspot.com https://ssl.gstatic.com/docs/documents/share/images/locked_doc-2.svg https://docs.google.com/a/gluttony.com/vt',
         'report-uri': '/csp',
         'reportOnly': base.constants.DEBUG,
     }
